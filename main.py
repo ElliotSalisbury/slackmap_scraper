@@ -14,7 +14,6 @@ lats = np.arange(bbox_range[1], bbox_range[3], step=step_size)
 total_requests = longs.shape[0] * lats.shape[0]
 pbar = tqdm(total=total_requests)
 
-lines = []
 for lng in longs:
     for lat in lats:
         pbar.set_description(f"getting {lng},{lat}")
@@ -27,5 +26,3 @@ for lng in longs:
         if response:
             with open(f'data/{lng}_{lat}.json', 'w') as outfile:
                 json.dump(response, outfile)
-
-# print(lines)
